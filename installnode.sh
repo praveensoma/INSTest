@@ -21,11 +21,11 @@ echo "---------------------------------------"
 echo "---------------------------------------"
 echo "---------------------------------------"
 echo "install request"
-npm install g request --save 
+npm install -g request --save 
 wait
 echo "---------------------------------------"
 echo "install words-to-numbers"
-npm install g words-to-numbers --save
+npm install -g words-to-numbers --save
 wait
 echo "---------------------------------------"
 echo "Helix Package Unzipped Begin"
@@ -53,7 +53,7 @@ cp /data/data/com.termux/files/home/storage/HelixPackage/flows.json /data/data/c
 wait
 echo "---------------------------------------"
 echo "Helix npm Package install begin"
-npm install g /data/data/com.termux/files/home/storage/HelixPackage/Helix-Voice-Node-RED --save
+npm install -g /data/data/com.termux/files/home/storage/HelixPackage/Helix-Voice-Node-RED --save
 wait
 echo "Helix npm Package installed"
 echo "---------------------------------------"
