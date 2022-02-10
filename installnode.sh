@@ -36,7 +36,7 @@ npm i -g --unsafe-perm node-red
 wait
 echo "---------------------------------------"
 echo "start node-red"
-node-red &
+/data/data/com.termux/files/usr/lib/node_modules/node-red/red.js -s /data/data/com.termux/files/usr/lib/node_modules/node-red/settings.js
 sleep 30
 echo "---------------------------------------"
 echo "search for node-red"
@@ -47,10 +47,6 @@ if [ "" !=  "$PID" ]; then
   kill -9 $PID
 fi
 echo "---------------------------------------"
-echo "Moving to Node-RED directory"
-cd /data/data/com.termux/files/home/.node-red
-echo "pwd is"
-pwd
 echo "---------------------------------------"
 echo "install request"
 npm install  request --save 
@@ -77,20 +73,20 @@ wait
 echo "---------------------------------------"
 sleep 5
 echo "Helix Node-RED Package Unzipped End"
-cp /data/data/com.termux/files/home/storage/HelixPackage/settings.js /data/data/com.termux/files/home/.node-red/settings.js
+cp /data/data/com.termux/files/home/storage/HelixPackage/settings.js /data/data/com.termux/files/usr/lib/node_modules/node-red/settings.js
 wait
-dos2unix /data/data/com.termux/files/home/.node-red/settings.js
+
 wait
-cp /data/data/com.termux/files/home/storage/HelixPackage/flows.json /data/data/com.termux/files/home/.node-red/flows.json
+cp /data/data/com.termux/files/home/storage/HelixPackage/flows.json /data/data/com.termux/files/usr/lib/node_modules/node-red/flows.json
 wait
 echo "---------------------------------------"
 echo "Helix npm Package install begin"
-npm install /data/data/com.termux/files/home/storage/HelixPackage/Helix-Voice-Node-RED
+npm install /data/data/com.termux/files/home/storage/HelixPackage/Helix-Voice-Node-RED --save
 wait
 echo "Helix npm Package installed"
 echo "---------------------------------------"
 echo "starting node-red "
-node-red &
+/data/data/com.termux/files/usr/lib/node_modules/node-red/red.js -s /data/data/com.termux/files/usr/lib/node_modules/node-red/settings.js
 sleep 5
 PID2=`ps -eaf | grep node-red | grep -v grep | awk '{print $2}'`
 if [ "" !=  "$PID2" ]; then
