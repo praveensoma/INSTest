@@ -1,0 +1,1108 @@
+[
+    {
+        "id": "d338380f723d7ead",
+        "type": "tab",
+        "label": "Global Menu",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "6dcbfed375f73d7f",
+        "type": "tab",
+        "label": "Get Order",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "26521d61c922b738",
+        "type": "tab",
+        "label": "Login",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "2b53f1d6eb5f4c0b",
+        "type": "tab",
+        "label": "Logout",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "3cf7afdd7882f022",
+        "type": "websocket-listener",
+        "path": "wss://devapigw.ashleyfurniture.com/helixvoice",
+        "wholemsg": "false"
+    },
+    {
+        "id": "a12df2423ab1a097",
+        "type": "function",
+        "z": "d338380f723d7ead",
+        "name": "",
+        "func": "const apps = flow.get('apps');\nconst sessions = global.get('sessions');\nmsg.apps = apps;\nmsg.sessions = sessions;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 290,
+        "y": 60,
+        "wires": [
+            [
+                "b8e09cc26993245f"
+            ]
+        ]
+    },
+    {
+        "id": "4fc78e931e27303f",
+        "type": "inject",
+        "z": "d338380f723d7ead",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 140,
+        "y": 60,
+        "wires": [
+            [
+                "a12df2423ab1a097"
+            ]
+        ]
+    },
+    {
+        "id": "b8e09cc26993245f",
+        "type": "debug",
+        "z": "d338380f723d7ead",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 430,
+        "y": 60,
+        "wires": []
+    },
+    {
+        "id": "09e2fefa23152b2c",
+        "type": "inject",
+        "z": "d338380f723d7ead",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "sessionId",
+                "v": "123",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "start app",
+        "payloadType": "str",
+        "x": 140,
+        "y": 120,
+        "wires": [
+            [
+                "dc1ea8bc44730702"
+            ]
+        ]
+    },
+    {
+        "id": "dc1ea8bc44730702",
+        "type": "voice-menu-start",
+        "z": "d338380f723d7ead",
+        "name": "Global Menu App",
+        "x": 370,
+        "y": 240,
+        "wires": [
+            [
+                "2a7e34395c3ca366"
+            ]
+        ]
+    },
+    {
+        "id": "2a7e34395c3ca366",
+        "type": "voice-menu-item",
+        "z": "d338380f723d7ead",
+        "enabled": true,
+        "name": "Global Menu",
+        "commandAliases": "",
+        "prompt": "",
+        "outputs": 4,
+        "enableOptions": true,
+        "enableGlobalMenu": true,
+        "enableLoop": false,
+        "enableMenuBuilder": false,
+        "apiEndPoint": "",
+        "x": 570,
+        "y": 240,
+        "wires": [
+            [
+                "37fd8f2c2172e902"
+            ],
+            [
+                "cd930044364424da"
+            ],
+            [
+                "59684f0fa3531b16"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "8b5a5d0f311c3cc4",
+        "type": "inject",
+        "z": "d338380f723d7ead",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "sessionId",
+                "v": "123",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "login",
+        "payloadType": "str",
+        "x": 130,
+        "y": 160,
+        "wires": [
+            [
+                "dc1ea8bc44730702"
+            ]
+        ]
+    },
+    {
+        "id": "d6e7f836115bdf1a",
+        "type": "inject",
+        "z": "d338380f723d7ead",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "sessionId",
+                "v": "123",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "logout",
+        "payloadType": "str",
+        "x": 130,
+        "y": 620,
+        "wires": [
+            [
+                "dc1ea8bc44730702"
+            ]
+        ]
+    },
+    {
+        "id": "fbc9edc683428a21",
+        "type": "inject",
+        "z": "d338380f723d7ead",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "sessionId",
+                "v": "123",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "confirm",
+        "payloadType": "str",
+        "x": 130,
+        "y": 660,
+        "wires": [
+            [
+                "dc1ea8bc44730702"
+            ]
+        ]
+    },
+    {
+        "id": "d318abe70958665e",
+        "type": "inject",
+        "z": "d338380f723d7ead",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "sessionId",
+                "v": "123",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "cancel",
+        "payloadType": "str",
+        "x": 130,
+        "y": 700,
+        "wires": [
+            [
+                "dc1ea8bc44730702"
+            ]
+        ]
+    },
+    {
+        "id": "37fd8f2c2172e902",
+        "type": "link call",
+        "z": "d338380f723d7ead",
+        "name": "login",
+        "links": [
+            "ea7d955b24791b3d"
+        ],
+        "timeout": "30",
+        "x": 750,
+        "y": 180,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "cd930044364424da",
+        "type": "link call",
+        "z": "d338380f723d7ead",
+        "name": "logout",
+        "links": [
+            "dc89fc619e6a0095"
+        ],
+        "timeout": "30",
+        "x": 750,
+        "y": 220,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "dd7c25c2859d70ef",
+        "type": "inject",
+        "z": "d338380f723d7ead",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "sessionId",
+                "v": "123",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "1234",
+        "payloadType": "str",
+        "x": 130,
+        "y": 240,
+        "wires": [
+            [
+                "dc1ea8bc44730702"
+            ]
+        ]
+    },
+    {
+        "id": "59684f0fa3531b16",
+        "type": "link call",
+        "z": "d338380f723d7ead",
+        "name": "my order",
+        "links": [
+            "739da6b1b48b9bc4"
+        ],
+        "timeout": "30",
+        "x": 760,
+        "y": 260,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "1439ea17f4493d8d",
+        "type": "inject",
+        "z": "d338380f723d7ead",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "sessionId",
+                "v": "123",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "my order",
+        "payloadType": "str",
+        "x": 140,
+        "y": 280,
+        "wires": [
+            [
+                "dc1ea8bc44730702"
+            ]
+        ]
+    },
+    {
+        "id": "7edd5f1a9406c29f",
+        "type": "inject",
+        "z": "d338380f723d7ead",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "sessionId",
+                "v": "123",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "start order 1",
+        "payloadType": "str",
+        "x": 150,
+        "y": 320,
+        "wires": [
+            [
+                "dc1ea8bc44730702"
+            ]
+        ]
+    },
+    {
+        "id": "8c726b2809ad2063",
+        "type": "inject",
+        "z": "d338380f723d7ead",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "sessionId",
+                "v": "123",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "start aisle 3",
+        "payloadType": "str",
+        "x": 150,
+        "y": 360,
+        "wires": [
+            [
+                "dc1ea8bc44730702"
+            ]
+        ]
+    },
+    {
+        "id": "0d5f24cc3c682fa7",
+        "type": "inject",
+        "z": "d338380f723d7ead",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "sessionId",
+                "v": "123",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "47",
+        "payloadType": "str",
+        "x": 130,
+        "y": 400,
+        "wires": [
+            [
+                "dc1ea8bc44730702"
+            ]
+        ]
+    },
+    {
+        "id": "de6fa02e773c9af6",
+        "type": "inject",
+        "z": "d338380f723d7ead",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "sessionId",
+                "v": "123",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "62",
+        "payloadType": "str",
+        "x": 130,
+        "y": 440,
+        "wires": [
+            [
+                "dc1ea8bc44730702"
+            ]
+        ]
+    },
+    {
+        "id": "8096e2eb0e728053",
+        "type": "inject",
+        "z": "d338380f723d7ead",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "sessionId",
+                "v": "123",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "35",
+        "payloadType": "str",
+        "x": 130,
+        "y": 480,
+        "wires": [
+            [
+                "dc1ea8bc44730702"
+            ]
+        ]
+    },
+    {
+        "id": "38184c160c990728",
+        "type": "inject",
+        "z": "d338380f723d7ead",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "sessionId",
+                "v": "123",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "45",
+        "payloadType": "str",
+        "x": 130,
+        "y": 520,
+        "wires": [
+            [
+                "dc1ea8bc44730702"
+            ]
+        ]
+    },
+    {
+        "id": "4f4f2013da7898fd",
+        "type": "inject",
+        "z": "d338380f723d7ead",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "sessionId",
+                "v": "123",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "state pin",
+        "payloadType": "str",
+        "x": 140,
+        "y": 200,
+        "wires": [
+            [
+                "dc1ea8bc44730702"
+            ]
+        ]
+    },
+    {
+        "id": "8f87bc9aca822ffa",
+        "type": "websocket in",
+        "z": "d338380f723d7ead",
+        "name": "receiver",
+        "server": "3cf7afdd7882f022",
+        "client": "",
+        "x": 330,
+        "y": 400,
+        "wires": [
+            [
+                "9344c336babd6654"
+            ]
+        ]
+    },
+    {
+        "id": "b8663d757c72f5c4",
+        "type": "inject",
+        "z": "d338380f723d7ead",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "sessionId",
+                "v": "123",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "106",
+        "payloadType": "str",
+        "x": 130,
+        "y": 560,
+        "wires": [
+            [
+                "dc1ea8bc44730702"
+            ]
+        ]
+    },
+    {
+        "id": "9344c336babd6654",
+        "type": "function",
+        "z": "d338380f723d7ead",
+        "name": "",
+        "func": "const wordsToNumbers = global.get('wordsToNumbers');\nconst parsedMsg = JSON.parse(msg.payload);\nif(parsedMsg.topic && (parsedMsg.topic === 'fromVOSK' || parsedMsg.topic === 'endVOSK')){\n    msg.payload = wordsToNumbers(parsedMsg.text);\n    msg.topic = parsedMsg.topic;\n    msg.assetId = parsedMsg.assetId;\n    return msg;\n}",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 500,
+        "y": 400,
+        "wires": [
+            [
+                "40a8081cc3303a8b",
+                "dc1ea8bc44730702"
+            ]
+        ]
+    },
+    {
+        "id": "40a8081cc3303a8b",
+        "type": "debug",
+        "z": "d338380f723d7ead",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 670,
+        "y": 400,
+        "wires": []
+    },
+    {
+        "id": "739da6b1b48b9bc4",
+        "type": "link in",
+        "z": "6dcbfed375f73d7f",
+        "name": "get orders list",
+        "links": [],
+        "x": 55,
+        "y": 100,
+        "wires": [
+            [
+                "3b618840dde1d2de"
+            ]
+        ]
+    },
+    {
+        "id": "3b618840dde1d2de",
+        "type": "voice-menu-start",
+        "z": "6dcbfed375f73d7f",
+        "name": "My Order",
+        "x": 160,
+        "y": 100,
+        "wires": [
+            [
+                "71f38809101f5e23"
+            ]
+        ]
+    },
+    {
+        "id": "71f38809101f5e23",
+        "type": "voice-menu-item",
+        "z": "6dcbfed375f73d7f",
+        "enabled": true,
+        "name": "my order",
+        "commandAliases": "my order",
+        "prompt": "",
+        "outputs": 1,
+        "enableOptions": true,
+        "enableGlobalMenu": true,
+        "enableLoop": false,
+        "enableMenuBuilder": false,
+        "apiEndPoint": "http://localhost:8001/helixvoice/getOrders",
+        "x": 330,
+        "y": 100,
+        "wires": [
+            [
+                "231fac167bab2fca"
+            ]
+        ]
+    },
+    {
+        "id": "231fac167bab2fca",
+        "type": "voice-menu-item",
+        "z": "6dcbfed375f73d7f",
+        "enabled": true,
+        "name": "order",
+        "commandAliases": "orders",
+        "prompt": "Order {order} with {positions} Positions",
+        "outputs": 1,
+        "enableOptions": true,
+        "enableGlobalMenu": true,
+        "enableLoop": false,
+        "enableMenuBuilder": true,
+        "apiEndPoint": "",
+        "x": 510,
+        "y": 100,
+        "wires": [
+            [
+                "9f2d4433215eb283"
+            ]
+        ]
+    },
+    {
+        "id": "9f2d4433215eb283",
+        "type": "voice-menu-item",
+        "z": "6dcbfed375f73d7f",
+        "enabled": true,
+        "name": "aisle",
+        "commandAliases": "aisles",
+        "prompt": "Aisle {aisle}",
+        "outputs": 2,
+        "enableOptions": true,
+        "enableGlobalMenu": true,
+        "enableLoop": false,
+        "enableMenuBuilder": true,
+        "apiEndPoint": "",
+        "x": 510,
+        "y": 200,
+        "wires": [
+            [
+                "fb772188943eee4c"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "fb772188943eee4c",
+        "type": "voice-menu-item",
+        "z": "6dcbfed375f73d7f",
+        "enabled": true,
+        "name": "shelf",
+        "commandAliases": "shelfs",
+        "prompt": "Rack {rack} Shelf {shelf}. {amount} Pieces",
+        "outputs": 3,
+        "enableOptions": true,
+        "enableGlobalMenu": true,
+        "enableLoop": false,
+        "enableMenuBuilder": true,
+        "apiEndPoint": "",
+        "x": 510,
+        "y": 300,
+        "wires": [
+            [
+                "9e5bcf2203867002"
+            ],
+            [
+                "9f2d4433215eb283"
+            ],
+            [
+                "231fac167bab2fca"
+            ]
+        ]
+    },
+    {
+        "id": "9e5bcf2203867002",
+        "type": "voice-menu-item",
+        "z": "6dcbfed375f73d7f",
+        "enabled": true,
+        "name": "menu processor",
+        "commandAliases": "",
+        "prompt": "",
+        "outputs": 1,
+        "enableOptions": true,
+        "enableGlobalMenu": true,
+        "enableLoop": true,
+        "enableMenuBuilder": false,
+        "apiEndPoint": "",
+        "x": 720,
+        "y": 300,
+        "wires": [
+            [
+                "efed945af4c08591",
+                "701cd41395e8c78c"
+            ]
+        ]
+    },
+    {
+        "id": "efed945af4c08591",
+        "type": "websocket out",
+        "z": "6dcbfed375f73d7f",
+        "name": "sender",
+        "server": "3cf7afdd7882f022",
+        "client": "",
+        "x": 930,
+        "y": 300,
+        "wires": []
+    },
+    {
+        "id": "701cd41395e8c78c",
+        "type": "debug",
+        "z": "6dcbfed375f73d7f",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 930,
+        "y": 360,
+        "wires": []
+    },
+    {
+        "id": "ea7d955b24791b3d",
+        "type": "link in",
+        "z": "26521d61c922b738",
+        "name": "login",
+        "links": [],
+        "x": 135,
+        "y": 240,
+        "wires": [
+            [
+                "da19c57bf209c9e0"
+            ]
+        ]
+    },
+    {
+        "id": "da19c57bf209c9e0",
+        "type": "voice-menu-start",
+        "z": "26521d61c922b738",
+        "name": "Login",
+        "x": 250,
+        "y": 240,
+        "wires": [
+            [
+                "14988adfd7910ab0"
+            ]
+        ]
+    },
+    {
+        "id": "14988adfd7910ab0",
+        "type": "voice-menu-item",
+        "z": "26521d61c922b738",
+        "enabled": true,
+        "name": "login",
+        "commandAliases": "login",
+        "prompt": "",
+        "outputs": 3,
+        "enableOptions": true,
+        "enableGlobalMenu": true,
+        "enableLoop": false,
+        "enableMenuBuilder": false,
+        "apiEndPoint": "",
+        "x": 390,
+        "y": 240,
+        "wires": [
+            [
+                "bcec2b3d39be7bb2"
+            ],
+            [
+                "e0b75aac887936f0"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "bcec2b3d39be7bb2",
+        "type": "voice-menu-item",
+        "z": "26521d61c922b738",
+        "enabled": true,
+        "name": "password",
+        "commandAliases": "state pin code",
+        "prompt": "",
+        "outputs": 3,
+        "enableOptions": true,
+        "enableGlobalMenu": true,
+        "enableLoop": false,
+        "enableMenuBuilder": false,
+        "apiEndPoint": "",
+        "x": 540,
+        "y": 220,
+        "wires": [
+            [
+                "66ccb3085fa3ef9c"
+            ],
+            [
+                "e0b75aac887936f0"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "66ccb3085fa3ef9c",
+        "type": "voice-menu-item",
+        "z": "26521d61c922b738",
+        "enabled": true,
+        "name": "",
+        "commandAliases": "1234",
+        "prompt": "",
+        "outputs": 3,
+        "enableOptions": true,
+        "enableGlobalMenu": true,
+        "enableLoop": false,
+        "enableMenuBuilder": false,
+        "apiEndPoint": "",
+        "x": 710,
+        "y": 200,
+        "wires": [
+            [
+                "2697e34ef96526f8"
+            ],
+            [
+                "e0b75aac887936f0"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "2697e34ef96526f8",
+        "type": "voice-menu-item",
+        "z": "26521d61c922b738",
+        "enabled": true,
+        "name": "",
+        "commandAliases": "logged in successfully",
+        "prompt": "",
+        "outputs": 3,
+        "enableOptions": true,
+        "enableGlobalMenu": true,
+        "enableLoop": false,
+        "enableMenuBuilder": false,
+        "apiEndPoint": "",
+        "x": 900,
+        "y": 180,
+        "wires": [
+            [],
+            [
+                "e0b75aac887936f0"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "e0b75aac887936f0",
+        "type": "debug",
+        "z": "26521d61c922b738",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 940,
+        "y": 320,
+        "wires": []
+    },
+    {
+        "id": "3c7a01136ce50642",
+        "type": "voice-menu-item",
+        "z": "2b53f1d6eb5f4c0b",
+        "enabled": true,
+        "name": "cancel",
+        "commandAliases": "cancel",
+        "prompt": "",
+        "outputs": 2,
+        "enableOptions": true,
+        "enableGlobalMenu": true,
+        "enableLoop": false,
+        "enableMenuBuilder": false,
+        "apiEndPoint": "",
+        "x": 490,
+        "y": 200,
+        "wires": [
+            [],
+            []
+        ]
+    },
+    {
+        "id": "49de7d359660e9c7",
+        "type": "voice-menu-item",
+        "z": "2b53f1d6eb5f4c0b",
+        "enabled": true,
+        "name": "confirm",
+        "commandAliases": "confirm",
+        "prompt": "",
+        "outputs": 2,
+        "enableOptions": true,
+        "enableGlobalMenu": true,
+        "enableLoop": false,
+        "enableMenuBuilder": false,
+        "apiEndPoint": "",
+        "x": 500,
+        "y": 160,
+        "wires": [
+            [],
+            []
+        ]
+    },
+    {
+        "id": "dc89fc619e6a0095",
+        "type": "link in",
+        "z": "2b53f1d6eb5f4c0b",
+        "name": "logout",
+        "links": [],
+        "x": 135,
+        "y": 200,
+        "wires": [
+            [
+                "addee442fab1facf"
+            ]
+        ]
+    },
+    {
+        "id": "5ceaaa15b51ede62",
+        "type": "voice-menu-item",
+        "z": "2b53f1d6eb5f4c0b",
+        "enabled": true,
+        "name": "logout",
+        "commandAliases": "logout",
+        "prompt": "",
+        "outputs": 3,
+        "enableOptions": true,
+        "enableGlobalMenu": true,
+        "enableLoop": false,
+        "enableMenuBuilder": false,
+        "apiEndPoint": "",
+        "x": 350,
+        "y": 200,
+        "wires": [
+            [
+                "49de7d359660e9c7"
+            ],
+            [
+                "3c7a01136ce50642"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "addee442fab1facf",
+        "type": "voice-menu-start",
+        "z": "2b53f1d6eb5f4c0b",
+        "name": "Logout",
+        "x": 210,
+        "y": 200,
+        "wires": [
+            [
+                "5ceaaa15b51ede62"
+            ]
+        ]
+    }
+]
