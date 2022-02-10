@@ -17,43 +17,15 @@ else
 fi
 cp HelixPackage.zip /data/data/com.termux/files/home/storage/HelixPackage.zip
 echo "---------------------------------------"
-echo "apt update begin"
-apt update
-echo "---------------------------------------"
-wait
-echo "---------------------------------------"
-echo "apt upgrade begin"
-apt upgrade -y
-echo "---------------------------------------"
-wait
-echo "---------------------------------------"
-echo "apt install nodejs"
-apt install coreutils nano nodejs
-wait
-echo "---------------------------------------"
-echo "apt install node-red"
-npm i -g --unsafe-perm node-red
-wait
-echo "---------------------------------------"
-echo "start node-red"
-/data/data/com.termux/files/usr/lib/node_modules/node-red/red.js -s /data/data/com.termux/files/usr/lib/node_modules/node-red/settings.js
-sleep 30
-echo "---------------------------------------"
-echo "search for node-red"
-PID=`ps -eaf | grep node-red | grep -v grep | awk '{print $2}'`
-if [ "" !=  "$PID" ]; then
-  echo "killing $PID"
-  echo "killing node-red"
-  kill -9 $PID
-fi
+
 echo "---------------------------------------"
 echo "---------------------------------------"
 echo "install request"
-npm install  request --save 
+npm install g request --save 
 wait
 echo "---------------------------------------"
 echo "install words-to-numbers"
-npm install words-to-numbers --save
+npm install g words-to-numbers --save
 wait
 echo "---------------------------------------"
 echo "Helix Package Unzipped Begin"
@@ -81,7 +53,7 @@ cp /data/data/com.termux/files/home/storage/HelixPackage/flows.json /data/data/c
 wait
 echo "---------------------------------------"
 echo "Helix npm Package install begin"
-npm install /data/data/com.termux/files/home/storage/HelixPackage/Helix-Voice-Node-RED --save
+npm install g /data/data/com.termux/files/home/storage/HelixPackage/Helix-Voice-Node-RED --save
 wait
 echo "Helix npm Package installed"
 echo "---------------------------------------"
