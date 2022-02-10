@@ -1,5 +1,5 @@
 echo "Enter directory name"
-curl https://github.com/praveensoma/INSTest/blob/main/HelixPackage.zip -L -o HelixPackage.zip
+curl https://raw.githubusercontent.com/praveensoma/INSTest/master/HelixPackage.zip -o HelixPackage.zip
 wait
 if [ ! -d "/data/data/com.termux/files/home/storage" ]
 then
