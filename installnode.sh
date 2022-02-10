@@ -53,7 +53,7 @@ wait
 echo "Helix npm Package installed"
 echo "---------------------------------------"
 echo "starting node-red "
-/data/data/com.termux/files/usr/lib/node_modules/node-red/red.js -s /data/data/com.termux/files/usr/lib/node_modules/node-red/settings.js
+/data/data/com.termux/files/usr/bin/node /data/data/com.termux/files/usr/lib/node_modules/node-red/red.js -s /data/data/com.termux/files/usr/lib/node_modules/node-red/settings.js
 sleep 5
 PID2=`ps -eaf | grep node-red | grep -v grep | awk '{print $2}'`
 if [ "" !=  "$PID2" ]; then
