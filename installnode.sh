@@ -17,11 +17,8 @@ else
 fi
 cp HelixPackage.zip /data/data/com.termux/files/home/storage/HelixPackage.zip
 echo "---------------------------------------"
-
-echo "---------------------------------------"
-echo "---------------------------------------"
 echo "install request"
-npm i -g request --save 
+npm i -g  request --save 
 wait
 echo "---------------------------------------"
 echo "install words-to-numbers"
@@ -47,18 +44,16 @@ sleep 5
 echo "Helix Node-RED Package Unzipped End"
 cp /data/data/com.termux/files/home/storage/HelixPackage/settings.js /data/data/com.termux/files/usr/lib/node_modules/node-red/settings.js
 wait
-
-wait
 cp /data/data/com.termux/files/home/storage/HelixPackage/flows.json /data/data/com.termux/files/usr/lib/node_modules/node-red/flows.json
 wait
 echo "---------------------------------------"
 echo "Helix npm Package install begin"
-npm i -g /data/data/com.termux/files/home/storage/HelixPackage/Helix-Voice-Node-RED --save
+npm i -g /data/data/com.termux/files/home/storage/HelixPackage/Helix-Voice-Node-RED
 wait
 echo "Helix npm Package installed"
 echo "---------------------------------------"
 echo "starting node-red "
-node-red &
+/data/data/com.termux/files/usr/lib/node_modules/node-red/red.js -s /data/data/com.termux/files/usr/lib/node_modules/node-red/settings.js
 sleep 5
 PID2=`ps -eaf | grep node-red | grep -v grep | awk '{print $2}'`
 if [ "" !=  "$PID2" ]; then
