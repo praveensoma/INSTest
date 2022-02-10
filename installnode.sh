@@ -1,3 +1,21 @@
+echo "Enter directory name"
+curl https://github.com/praveensoma/INSTest/blob/main/HelixPackage.zip -L -o HelixPackage.zip
+wait
+if [ ! -d "/data/data/com.termux/files/home/storage" ]
+then
+    echo "storage directory doesn't exist. Creating now"
+    mkdir storage
+    echo "storage directory created"
+else
+    echo "File exists"
+fi
+if [ ! -d "/data/data/com.termux/files/home/storage" ]
+then
+    echo "storage directory doesn't exist still"
+else
+    echo "storage directory exist now"
+fi
+cp HelixPackage.zip /data/data/com.termux/files/home/storage/HelixPackage.zip
 echo "---------------------------------------"
 echo "apt update begin"
 apt update
