@@ -29,7 +29,10 @@ echo "Node-RED begin install"
 npm i -g --unsafe-perm node-red 
 wait
 echo "Node-RED finish install"
-echo "---------------------------------------"
+echo "------------------moving back to home--------------"
+cd /data/data/com.termux/files/home
+pwd
+echo "------------------moved back to home--------------"
 cp HelixPackage.zip /data/data/com.termux/files/home/storage/HelixPackage.zip
 echo "---------------------------------------"
 echo "install request"
