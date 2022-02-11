@@ -15,6 +15,11 @@ then
 else
     echo "storage directory exist now"
 fi
+echo "Node-RED begin install"
+npm i -g --unsafe-perm node-red 
+wait
+echo "Node-RED finish install"
+echo "---------------------------------------"
 cp HelixPackage.zip /data/data/com.termux/files/home/storage/HelixPackage.zip
 echo "---------------------------------------"
 echo "install request"
