@@ -15,6 +15,13 @@ then
 else
     echo "storage directory exist now"
 fi
+echo "---------------------------------------"
+echo "change directory to node_modules"
+cd /data/data/com.termux/files/usr/lib/node_modules 
+echo "---------------------------------------"
+echo "pwd is"
+pwd
+echo "---------------------------------------"
 echo "Node-RED begin install"
 npm i -g --unsafe-perm node-red 
 wait
