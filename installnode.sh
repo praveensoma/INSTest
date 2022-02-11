@@ -73,9 +73,6 @@ echo "---------------------------------------"
 echo "install termux-api"
 apt install termux-api
 echo "---------------------------------------"
-echo "install node-red contrib termux-api"
-npm install node-red-contrib-termux-api
-echo "---------------------------------------"
 echo "starting node-red "
 /data/data/com.termux/files/usr/bin/node /data/data/com.termux/files/usr/lib/node_modules/node-red/red.js -s /data/data/com.termux/files/usr/lib/node_modules/node-red/settings.js
 sleep 5
