@@ -22,6 +22,9 @@ echo "---------------------------------------"
 echo "pwd is"
 pwd
 echo "---------------------------------------"
+echo "install l8 next begin"
+npm install -g react-i18next
+echo "install finished il8 next"
 echo "Node-RED begin install"
 npm i -g --unsafe-perm node-red 
 wait
