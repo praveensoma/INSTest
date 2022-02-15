@@ -66,6 +66,7 @@ cp /data/data/com.termux/files/home/storage/HelixPackage/flows.json /data/data/c
 wait
 cp /data/data/com.termux/files/home/storage/HelixPackage/runnode.sh /data/data/com.termux/files/home/runnode.sh 
 wait
+dos2unix /data/data/com.termux/files/home/runnode.sh
 echo "---------------------------------------"
 echo "Helix npm Package install begin"
 npm i -g /data/data/com.termux/files/home/storage/HelixPackage/Helix-Voice-Node-RED
