@@ -3,7 +3,7 @@ PID=`ps -eaf | grep node-red | grep -v grep | awk '{print $2}'`
 if [ "" !=  "$PID" ];
 then
   echo "Node-RED already running with $PID"  
-  logout
+  exit
 else
 /data/data/com.termux/files/usr/bin/node /data/data/com.termux/files/usr/lib/node_modules/node-red/red.js -s /data/data/com.termux/files/usr/lib/node_modules/node-red/settings.js 
 sleep 2
